@@ -28,9 +28,9 @@ export default function WordleSolver() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 p-4">
             <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
+                <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
                     🎯 Wordle Solver
                 </h1>
 
@@ -53,7 +53,7 @@ export default function WordleSolver() {
                     />
                 </div>
 
-                <div className="mt-8 text-center text-gray-600">
+                <div className="mt-8 text-center text-gray-600 dark:text-gray-400">
                     <p className="text-sm">
                         This solver uses letter frequency analysis and position-based scoring to suggest the most statistically optimal words.
                         Green = correct position, Yellow = wrong position, Gray = not in word.

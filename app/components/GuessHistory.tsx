@@ -12,7 +12,7 @@ export default function GuessHistory({ guesses }: GuessHistoryProps) {
 
     return (
         <div className="mt-6">
-            <h3 className="text-lg font-medium mb-3 text-gray-800">Your Guesses</h3>
+            <h3 className="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Your Guesses</h3>
             <div className="space-y-2">
                 {guesses.map((guess, guessIndex) => (
                     <div key={guessIndex} className="flex gap-2 justify-center">
