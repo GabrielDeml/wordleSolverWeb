@@ -7,6 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+"test": "vitest",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
@@ -19,11 +20,15 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4",
+		"@testing-library/react": "^16.3.0",
 		"@types/node": "^20.19.1",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@vitejs/plugin-react": "^4.6.0",
+		"jsdom": "^26.1.0",
 		"tailwindcss": "^4",
 		"typescript": "^5",
+		"vitest": "^3.2.4",
 		"wrangler": "^4.20.5"
 	}
 }
