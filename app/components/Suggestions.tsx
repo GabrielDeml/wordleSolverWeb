@@ -4,12 +4,24 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Suggestion } from '../types';
 
+/**
+ * Props for the Suggestions component.
+ * @interface SuggestionsProps
+ */
 interface SuggestionsProps {
+    /** An array of suggested words. */
     suggestions: Suggestion[];
+    /** An array of all possible words. */
     possibleWords: string[];
+    /** Function to set the current guess word. */
     setCurrentGuess: Dispatch<SetStateAction<string>>;
 }
 
+/**
+ * A component to display the optimal word suggestions.
+ * @param {SuggestionsProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function Suggestions({ suggestions, possibleWords, setCurrentGuess }: SuggestionsProps) {
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">

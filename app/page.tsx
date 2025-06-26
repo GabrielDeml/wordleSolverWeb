@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useWordleSolver } from './hooks/useWordleSolver';
@@ -5,6 +6,10 @@ import GuessInput from './components/GuessInput';
 import Suggestions from './components/Suggestions';
 import GuessHistory from './components/GuessHistory';
 
+/**
+ * The main page of the Wordle Solver application.
+ * @returns {JSX.Element} The rendered page.
+ */
 export default function WordleSolver() {
     const {
         loading,

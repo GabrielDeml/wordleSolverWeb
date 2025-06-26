@@ -1,16 +1,32 @@
+
 'use client';
 
 import React, { Dispatch, SetStateAction } from 'react';
 
+/**
+ * Props for the GuessInput component.
+ * @interface GuessInputProps
+ */
 interface GuessInputProps {
+    /** The current guess word. */
     currentGuess: string;
+    /** Function to set the current guess word. */
     setCurrentGuess: Dispatch<SetStateAction<string>>;
+    /** The feedback for the current guess. */
     currentFeedback: ('correct' | 'present' | 'absent')[];
+    /** Function to update the feedback for a letter. */
     updateFeedback: (index: number, feedback: 'correct' | 'present' | 'absent') => void;
+    /** Function to add the current guess to the list of guesses. */
     addGuess: () => void;
+    /** Function to reset the solver. */
     reset: () => void;
 }
 
+/**
+ * A component for inputting a guess and its feedback.
+ * @param {GuessInputProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function GuessInput({ currentGuess, setCurrentGuess, currentFeedback, updateFeedback, addGuess, reset }: GuessInputProps) {
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
@@ -45,7 +61,7 @@ export default function GuessInput({ currentGuess, setCurrentGuess, currentFeedb
                                 'bg-gray-400'
                             } hover:opacity-80 transition-opacity`}
                         >
-                            {currentGuess[index] || '?'}
+                            {currentGuess[index] || '?’}
                         </button>
                     ))}
                 </div>

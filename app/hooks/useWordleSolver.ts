@@ -4,6 +4,10 @@ import { useState, useEffect, useMemo } from 'react';
 import { GuessResult, Suggestion } from '../types';
 import { calculateLetterConstraints, filterWords, getSuggestions } from '../lib/solver';
 
+/**
+ * A custom hook to manage the state and logic of the Wordle solver.
+ * @returns {object} An object containing the state and functions for the Wordle solver.
+ */
 export function useWordleSolver() {
     const [wordList, setWordList] = useState<string[]>([]);
     const [possibleWords, setPossibleWords] = useState<string[]>([]);
@@ -13,6 +17,9 @@ export function useWordleSolver() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        /**
+         * Loads the list of valid Wordle words from the server.
+         */
         const loadWords = async () => {
             try {
                 const response = await fetch('/valid-wordle-words.txt');
@@ -44,6 +51,9 @@ export function useWordleSolver() {
 
     const suggestions = useMemo(() => getSuggestions(possibleWords), [possibleWords]);
 
+    /**
+     * Adds the current guess to the list of guesses.
+     */
     const addGuess = () => {
         if (currentGuess.length === 5) {
             setGuesses([...guesses, { word: currentGuess.toLowerCase(), feedback: [...currentFeedback] }]);
@@ -52,12 +62,20 @@ export function useWordleSolver() {
         }
     };
 
+    /**
+     * Updates the feedback for a letter in the current guess.
+     * @param {number} index - The index of the letter to update.
+     * @param {'correct' | 'present' | 'absent'} feedback - The feedback for the letter.
+     */
     const updateFeedback = (index: number, feedback: 'correct' | 'present' | 'absent') => {
         const newFeedback = [...currentFeedback];
         newFeedback[index] = feedback;
         setCurrentFeedback(newFeedback);
     };
 
+    /**
+     * Resets the solver to its initial state.
+     */
     const reset = () => {
         setGuesses([]);
         setCurrentGuess('');

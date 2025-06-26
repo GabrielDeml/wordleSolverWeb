@@ -3,10 +3,20 @@
 
 import { GuessResult } from '../types';
 
+/**
+ * Props for the GuessHistory component.
+ * @interface GuessHistoryProps
+ */
 interface GuessHistoryProps {
+    /** An array of previous guesses. */
     guesses: GuessResult[];
 }
 
+/**
+ * A component to display the history of guesses.
+ * @param {GuessHistoryProps} props - The props for the component.
+ * @returns {JSX.Element | null} The rendered component, or null if there are no guesses.
+ */
 export default function GuessHistory({ guesses }: GuessHistoryProps) {
     if (guesses.length === 0) return null;
 

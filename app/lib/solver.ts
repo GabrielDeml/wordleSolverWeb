@@ -1,6 +1,11 @@
 
 import { LetterConstraint, Suggestion } from '../types';
 
+/**
+ * Calculates the constraints for each letter based on the user's guesses.
+ * @param {Array<{ word: string; feedback: ('correct' | 'present' | 'absent')[] }>} guesses - An array of guess objects.
+ * @returns {Map<string, LetterConstraint>} A map of letter constraints.
+ */
 export function calculateLetterConstraints(guesses: { word: string; feedback: ('correct' | 'present' | 'absent')[] }[]): Map<string, LetterConstraint> {
     const constraints = new Map<string, LetterConstraint>();
 
@@ -36,6 +41,12 @@ export function calculateLetterConstraints(guesses: { word: string; feedback: ('
     return constraints;
 }
 
+/**
+ * Filters the word list based on the calculated letter constraints.
+ * @param {string[]} wordList - The list of all possible Wordle words.
+ * @param {Map<string, LetterConstraint>} letterConstraints - A map of letter constraints.
+ * @returns {string[]} A new array of words that match the constraints.
+ */
 export function filterWords(wordList: string[], letterConstraints: Map<string, LetterConstraint>): string[] {
     if (wordList.length === 0) return [];
 
@@ -68,6 +79,11 @@ export function filterWords(wordList: string[], letterConstraints: Map<string, L
     });
 }
 
+/**
+ * Generates a list of optimal word suggestions based on the remaining possible words.
+ * @param {string[]} possibleWords - An array of words that are still possible answers.
+ * @returns {Suggestion[]} An array of suggested words, sorted by their score.
+ */
 export function getSuggestions(possibleWords: string[]): Suggestion[] {
     if (possibleWords.length === 0) return [];
 
